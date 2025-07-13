@@ -11,10 +11,55 @@ body {
     background: linear-gradient(to right, #74ebd5, #acb6e5);
 }
 
-h1 {
+h1, h2{
     font-size: 4rem;
     color: #ffffff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     border-bottom: 4px solid white;
     padding-bottom: 10px;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background: #4facfe;
+    background: linear-gradient(to right, #00f2fe, #4facfe);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: #ffffff;
+    text-decoration: underline;
+    margin-top: 20px;
+    display: inline-block;
 }
