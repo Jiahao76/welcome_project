@@ -6,10 +6,26 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div>
+    <div class="container">
         <h1>Welcome, {{ user.username }}!</h1>
         <p>This is your dashboard.</p>
+
         <a href="/logout/">Logout</a>
+
+        <hr>
+
+        <h2>Your Uploads</h2>
+        <ul>
+          {% for item in submissions %}
+            <li>
+              <a href="{{ item.file.url }}">{{ item.file.name }}</a> ({{ item.timestamp }})
+            </li>
+          {% empty %}
+            <li>No uploads yet.</li>
+          {% endfor %}
+        </ul>
+
+        <a href="/upload/">Upload New Homework</a>
     </div>
 </body>
 </html>
