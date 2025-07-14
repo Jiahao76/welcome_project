@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import HomeworkSubmission
 
-# Register your models here.
+@admin.register(HomeworkSubmission)
+class HomeworkSubmissionAdmin(admin.ModelAdmin):
+    list_display = ('user', 'file', 'timestamp')
+    list_filter = ('timestamp', 'user')
+    search_fields = ('user__username',)
