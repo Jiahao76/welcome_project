@@ -146,3 +146,11 @@ AWS_S3_REGION_NAME = 'us-east-1'
 AWS_QUERYSTRING_AUTH = True  # Requires presigned URL to access
 AWS_S3_FILE_OVERWRITE = False  # Avoid filename conflicts
 AWS_DEFAULT_ACL = None  # Do not auto-assign public-read
+
+REDSHIFT_CONFIG = {
+    'NAME': 'homework_db',
+    'USER': 'homework_user',
+    'PASSWORD': 'YourSecurePassword123!',
+    'HOST': 'jdbc:redshift://homework-analytics.765390126389.us-east-1.redshift-serverless.amazonaws.com',
+    'PORT': '5439',
+}
