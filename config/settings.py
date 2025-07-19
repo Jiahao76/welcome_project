@@ -142,3 +142,7 @@ AWS_STORAGE_BUCKET_NAME = 'findingnothing-homeworks-bucket'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_S3_REGION_NAME = 'us-east-1'
+
+AWS_QUERYSTRING_AUTH = True  # Requires presigned URL to access
+AWS_S3_FILE_OVERWRITE = False  # Avoid filename conflicts
+AWS_DEFAULT_ACL = None  # Do not auto-assign public-read

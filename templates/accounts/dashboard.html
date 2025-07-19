@@ -18,7 +18,8 @@
         <ul>
           {% for item in submissions %}
             <li>
-              <a href="{{ item.file.url }}">{{ item.file.name }}</a> ({{ item.timestamp }})
+              <a href="{{ item.presigned_url }}">{{ item.file.name }}</a>
+              ({{ item.timestamp }})
             </li>
           {% empty %}
             <li>No uploads yet.</li>
