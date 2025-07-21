@@ -32,18 +32,21 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div><strong>FindingNothing</strong></div>
-        <div>
-            {% if user.is_authenticated %}
-                <a href="/dashboard/">Dashboard</a>
-                <a href="/upload/">Upload</a>
-                <a href="/logout/">Logout</a>
-            {% else %}
-                <a href="/login/">Login</a>
-            {% endif %}
-        </div>
-    </nav>
+  <nav>
+<div><strong>FindingNothing</strong></div>
+<div>
+  {% if user.is_authenticated %}
+    <a href="/dashboard/">Dashboard</a>
+    <a href="/upload/">Upload</a>
+    <a href="/logout/">Logout</a>
+  {% else %}
+    <a href="/login/">Login</a>
+    {% if request.path == "/" %}
+      <a href="/register/">Register</a>
+    {% endif %}
+  {% endif %}
+</div>
+</nav>
 
     <main class="container">
         {% block content %}
