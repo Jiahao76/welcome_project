@@ -1,33 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome, {{ user.username }}!</h1>
-        <p>This is your dashboard.</p>
 
-        <a href="/logout/">Logout</a>
 
-        <hr>
+{% block content %}
+<div class="container">
+    <h1>Welcome, {{ user.username }}!</h1>
+    <p>This is your dashboard.</p>
 
-        <h2>Your Uploads</h2>
-        <ul>
-          {% for item in submissions %}
-            <li>
-              <a href="{{ item.presigned_url }}">{{ item.file.name }}</a>
-              ({{ item.timestamp }})
-            </li>
-          {% empty %}
-            <li>No uploads yet.</li>
-          {% endfor %}
-        </ul>
+    <a href="/logout/">Logout</a>
 
-        <a href="/upload/">Upload New Homework</a>
-    </div>
-</body>
-</html>
+    <hr>
+
+    <h2>Your Uploads</h2>
+    <ul>
+      {% for item in submissions %}
+        <li>
+          <a href="{{ item.presigned_url }}">{{ item.file.name }}</a>
+          ({{ item.timestamp }})
+        </li>
+      {% empty %}
+        <li>No uploads yet.</li>
+      {% endfor %}
+    </ul>
+
+    <a href="/upload/">Upload New Homework</a>
+</div>
+{% endblock %}
