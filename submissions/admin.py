@@ -4,13 +4,6 @@ from django.http import HttpResponse
 from django.contrib import admin
 from .models import HomeworkSubmission
 
-
-@admin.register(HomeworkSubmission)
-class HomeworkSubmissionAdmin(admin.ModelAdmin):
-    list_display = ('user', 'file', 'timestamp')
-    list_filter = ('timestamp', 'user')
-    search_fields = ('user__username',)
-
 @admin.action(description="Download selected homeworks")
 def download_selected_homeworks(modeladmin, request, queryset):
     zip_buffer = BytesIO()
@@ -27,3 +20,10 @@ def download_selected_homeworks(modeladmin, request, queryset):
     response = HttpResponse(zip_buffer, content_type='application/zip')
     response['Content-Disposition'] = 'attachment; filename="homeworks.zip"'
     return response
+
+@admin.register(HomeworkSubmission)
+class HomeworkSubmissionAdmin(admin.ModelAdmin):
+    list_display = ('user', 'file', 'timestamp')
+    list_filter = ('timestamp', 'user')
+    search_fields = ('user__username',)
+    actions = [download_selected_homeworks]
