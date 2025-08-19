@@ -8,3 +8,8 @@ class HomeworkSubmission(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.file.name}"
+    
+    class Meta:
+        permissions = [
+            ("can_upload_homework", "Can upload homework"),
+        ]
