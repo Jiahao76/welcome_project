@@ -6,8 +6,8 @@ from .utils import log_to_redshift
 from django.contrib.auth.decorators import permission_required
 
 
-@login_required
 @permission_required('submissions.can_upload_homework', raise_exception=True)
+@login_required
 def upload_homework(request):
     if request.method == 'POST':
         form = HomeworkSubmissionForm(request.POST, request.FILES)
